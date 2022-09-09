@@ -72,16 +72,16 @@ const PostCard: NextPage<IProps> = ({ post }) => {
             onMouseLeave={() => setIsHover(false)}
             className="rounded-3xl"
           >
-            <Link href="/">
+            <Link href={`/detail/${post._id}`}>
               <video
                 loop
-                className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-white border border-[#00af12]"
+                className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[530px] w-[200px] rounded-2xl cursor-pointer bg-white border border-[#00af12]"
                 src={post.video.asset.url}
                 ref={videoRef}
               ></video>
             </Link>
             {isHover && (
-              <div className="absolute bottom-6 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between w-[100px] md:w-[50px] lg:w-[600px] p-3">
+              <div className="absolute bottom-6 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-center w-[100px] md:w-[50px] lg:w-[600px] p-3">
                 {playing ? (
                   <button onClick={onVideoPress}>
                     <BsFillPauseFill className="text-black text-2xl lg:text-4xl hover:text-[#00af12]" />
@@ -104,14 +104,12 @@ const PostCard: NextPage<IProps> = ({ post }) => {
             )}
           </div>
         ) : (
-          <Link href="/">
-            <>
-              <img
-                className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-white object-contain border border-[#00af12]"
-                src={post.image.asset.url}
-                alt="PhotoProfil"
-              />
-            </>
+          <Link href={`/detail/${post._id}`}>
+            <img
+              className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-white object-contain border border-[#00af12]"
+              src={post.image.asset.url}
+              alt="PhotoProfil"
+            />
           </Link>
         )}
       </div>

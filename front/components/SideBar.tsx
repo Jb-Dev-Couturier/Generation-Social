@@ -35,7 +35,7 @@ const SideBar = () => {
               </div>
             </Link>
           </div>
-          {!userProfile && (
+          {/* {!userProfile && (
             <div className="px-2 py-4 hidden xl:block">
               <p className="text-gray-400">
                 Connectez Vous pour liker et partager avec nous
@@ -58,7 +58,7 @@ const SideBar = () => {
                 />
               </div>
             </div>
-          )}
+          )} */}
           <Discover/>
           <SuggestedAccounts/>
           <Footer/>

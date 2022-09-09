@@ -1,14 +1,26 @@
-import { BsCode, BsEmojiSunglasses } from 'react-icons/bs';
-import { GiCakeSlice, GiGalaxy, GiLipstick } from 'react-icons/gi';
+import { BsEmojiSunglasses } from 'react-icons/bs';
+import { GiLipstick } from 'react-icons/gi';
 import { FaPaw, FaMedal, FaGamepad } from 'react-icons/fa';
+import { SiGooglenews } from 'react-icons/si';
+import { GrRestaurant } from 'react-icons/gr';
+
+
 
 import { ImBooks } from 'react-icons/im';
 
 
 export const topics = [
   {
-    name: 'manga',
-    icon: <ImBooks />,
+    name: 'actualités',
+    icon: <SiGooglenews />,
+  },
+  {
+    name: 'animaux',
+    icon: <FaPaw />,
+  },
+  {
+    name: 'gastronomie',
+    icon: <GrRestaurant />,
   },
   {
     name: 'humour',
@@ -19,20 +31,12 @@ export const topics = [
     icon: <FaGamepad />,
   },
   {
-    name: 'gastronomie',
-    icon: <GiCakeSlice />,
-  },
-  {
-    name: 'danse',
-    icon: <GiGalaxy />,
+    name: 'manga',
+    icon: <ImBooks />,
   },
   {
     name: 'mode',
     icon: <GiLipstick />,
-  },
-  {
-    name: 'animaux',
-    icon: <FaPaw />,
   },
   {
     name: 'sports',

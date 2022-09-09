@@ -1,16 +1,23 @@
-
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { client } from '../../../utils/client';
+
 import { allPostsQuery } from '../../../utils/queries';
+import { client } from '../../../utils/client';
 
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method === 'GET') {
+    const query = allPostsQuery();
 
+    const data = await client.fetch(query);
 
-export default async function handler(req: NextApiRequest,res: NextApiResponse) {
-    
-  if(req.method === 'GET'){
-    const query = allPostsQuery()
+    res.status(200).json(data);
+  } else if (req.method === 'POST') {
+    const doc = req.body;
 
-    const data = await client.fetch(query)
-    res.status(200).json(data)
+    client.create(doc).then(() => {
+      res.status(201).json('Post created');
+    });
   }
 }
