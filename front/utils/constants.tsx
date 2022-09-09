@@ -2,33 +2,36 @@ import { BsCode, BsEmojiSunglasses } from 'react-icons/bs';
 import { GiCakeSlice, GiGalaxy, GiLipstick } from 'react-icons/gi';
 import { FaPaw, FaMedal, FaGamepad } from 'react-icons/fa';
 
+import { ImBooks } from 'react-icons/im';
+
+
 export const topics = [
   {
-    name: 'development',
-    icon: <BsCode />,
+    name: 'manga',
+    icon: <ImBooks />,
   },
   {
-    name: 'comedy',
+    name: 'humour',
     icon: <BsEmojiSunglasses />,
   },
   {
-    name: 'gaming',
+    name: 'jeux',
     icon: <FaGamepad />,
   },
   {
-    name: 'food',
+    name: 'gastronomie',
     icon: <GiCakeSlice />,
   },
   {
-    name: 'dance',
+    name: 'danse',
     icon: <GiGalaxy />,
   },
   {
-    name: 'beauty',
+    name: 'mode',
     icon: <GiLipstick />,
   },
   {
-    name: 'animals',
+    name: 'animaux',
     icon: <FaPaw />,
   },
   {
@@ -37,6 +40,26 @@ export const topics = [
   },
 ];
 
-export const footerList1 = ['About', 'Newsroom', 'Store', 'Contact', 'Carrers', 'ByteDance', 'Creator Directory']
-export const footerList2 = [ 'TikTik for Good','Advertise','Developers','Transparency','TikTik Rewards' ]
-export const footerList3 = [ 'Help', 'Safety', 'Terms', 'Privacy', 'Creator Portal', 'Community Guidelines' ]
+export const footerList1 = [
+  'Apropos',
+  'Actualités',
+  'Magasin',
+  'Contact',
+  'Carrières',
+  'J&K Web',
+  
+];
+export const footerList2 = [
+  'GenSocial',
+  'Avertissements',
+  'Devellopeurs',
+  'Rewards',
+];
+export const footerList3 = [
+  'Services',
+  'Securité',
+  'Conditions',
+  'Compte Privé',
+  'Portail',
+  'Chart',
+];
