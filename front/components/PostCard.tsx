@@ -29,10 +29,10 @@ const PostCard: NextPage<IProps> = ({ post }) => {
   };
 
   return (
-    <div className="flex flex-col border-b-2 border-gray-200 pb-6">
+    <div className="flex flex-col border-b-2 border-[#00af12] pb-6 bg-zinc-800 rounded-2xl">
       <div>
-        <div className="flex gap-3 p-2 cursor-pointer rounded font-semibold">
-          <div className="md:w-16 md:h-16 w-10 h-10">
+        <div className="flex gap-3 p-2 cursor-pointer rounded font-semibold ">
+          <div className="md:w-16 md:h-16 w-10 h-10 rounded-full border-2 border-[#00af12] shadow-md shadow-white">
             <Link href="/">
               <>
                 <Image
@@ -49,7 +49,7 @@ const PostCard: NextPage<IProps> = ({ post }) => {
           <div>
             <Link href="/">
               <div className="flex items-center gap-2">
-                <p className="flex items-center gap-2 md:text-md font-bold text-primary">
+                <p className="flex items-center gap-2 md:text-md font-bold  text-[#fff]">
                   {post.postedBy.userName}
                   {''}
                   <GoVerified className="text-[#00af12] text-md" />
@@ -60,7 +60,7 @@ const PostCard: NextPage<IProps> = ({ post }) => {
               </div>
             </Link>
             <Link href={`/`}>
-              <p className="mt-2 font-normal ">{post.caption}</p>
+              <p className="mt-2 font-normal text-[#fff]">{post.caption}</p>
             </Link>
           </div>
         </div>
@@ -75,7 +75,7 @@ const PostCard: NextPage<IProps> = ({ post }) => {
             <Link href="/">
               <video
                 loop
-                className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-primary"
+                className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-white border border-[#00af12]"
                 src={post.video.asset.url}
                 ref={videoRef}
               ></video>
@@ -107,7 +107,7 @@ const PostCard: NextPage<IProps> = ({ post }) => {
           <Link href="/">
             <>
               <img
-                className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-primary object-contain"
+                className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-white object-contain border border-[#00af12]"
                 src={post.image.asset.url}
                 alt="PhotoProfil"
               />
