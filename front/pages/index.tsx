@@ -1,12 +1,36 @@
-import type { NextPage } from 'next'
+import axios from 'axios';
+import NoResults from '../components/NoResults';
+import PostCard from '../components/PostCard';
+import { Post } from '../types';
 
-
-const Home: NextPage = () => {
-  return (
-    <h1 className="text-3xl font-bold underline">
-      Hello Generation Social
-    </h1>
-  )
+interface IProps {
+  posts: Post[];
 }
 
-export default Home
+const Home = ({ posts }: IProps) => {
+  console.log(posts);
+
+  return (
+    <div className="flex flex-col gap-10 videos h-full">
+      {posts.length ? (
+        posts.map((post: Post) => (
+          <PostCard post={post} key={post._id} />
+        ))
+      ) : (
+        <NoResults text={'Pas de video'} />
+      )}
+    </div>
+  );
+};
+
+export const getServerSideProps = async () => {
+  const { data } = await axios.get('http://localhost:3000/api/post');
+
+  return {
+    props: {
+      posts: data,
+    },
+  };
+};
+
+export default Home;

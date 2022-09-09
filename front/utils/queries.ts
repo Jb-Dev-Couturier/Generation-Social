@@ -2,11 +2,18 @@ export const allPostsQuery = () => {
   const query = `*[_type == "post"] | order(_createdAt desc){
     _id,
      caption,
+       image{
+        asset->{
+          _id,
+          url
+        },
+      },
+     caption,
        video{
         asset->{
           _id,
           url
-        }
+        },
       },
       userId,
       postedBy->{
@@ -33,11 +40,18 @@ export const postDetailQuery = (postId: string | string[]) => {
   const query = `*[_type == "post" && _id == '${postId}']{
     _id,
      caption,
+       image{
+        asset->{
+          _id,
+          url
+        },
+      },
+     caption,
        video{
         asset->{
           _id,
           url
-        }
+        },
       },
       userId,
     postedBy->{
@@ -62,11 +76,18 @@ export const searchPostsQuery = (searchTerm: string | string[]) => {
   const query = `*[_type == "post" && caption match '${searchTerm}*' || topic match '${searchTerm}*'] {
     _id,
      caption,
+       image{
+        asset->{
+          _id,
+          url
+        },
+      },
+     caption,
        video{
         asset->{
           _id,
           url
-        }
+        },
       },
       userId,
     postedBy->{
@@ -104,11 +125,18 @@ export const userCreatedPostsQuery = (userId: string | string[]) => {
   const query = `*[ _type == 'post' && userId == '${userId}'] | order(_createdAt desc){
     _id,
      caption,
+       image{
+        asset->{
+          _id,
+          url
+        },
+      },
+     caption,
        video{
         asset->{
           _id,
           url
-        }
+        },
       },
       userId,
     postedBy->{
@@ -136,11 +164,18 @@ export const userLikedPostsQuery = (userId: string | string[]) => {
   const query = `*[_type == 'post' && '${userId}' in likes[]._ref ] | order(_createdAt desc) {
     _id,
      caption,
+       image{
+        asset->{
+          _id,
+          url
+        },
+      },
+     caption,
        video{
         asset->{
           _id,
           url
-        }
+        },
       },
       userId,
     postedBy->{
@@ -168,11 +203,18 @@ export const topicPostsQuery = (topic: string | string[]) => {
   const query = `*[_type == "post" && topic match '${topic}*'] {
     _id,
      caption,
+       image{
+        asset->{
+          _id,
+          url
+        },
+      },
+     caption,
        video{
         asset->{
           _id,
           url
-        }
+        },
       },
       userId,
     postedBy->{
