@@ -3,7 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['www.jb-dev-couturier.fr', 'cdn.sanity.io'],
+    domains: [
+      'www.jb-dev-couturier.fr',
+      'cdn.sanity.io',
+      'lh3.googleusercontent.com',
+    ],
   },
 };
 

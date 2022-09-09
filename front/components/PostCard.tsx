@@ -7,7 +7,6 @@ import { BsPlay, BsFillPlayFill, BsFillPauseFill } from 'react-icons/bs';
 import { GoVerified } from 'react-icons/go';
 
 import { Post } from '../types';
-import { urlFor} from '../utils/client'
 
 interface IProps {
   post: Post;
