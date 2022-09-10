@@ -19,7 +19,7 @@ interface IComment {
   comment: string;
   length?: number;
   _key: string;
-  postedBy: { _ref: string; _id: string };
+  postedBy: { _ref?: string; _id?: string };
 }
 
 const Comments = ({
@@ -35,9 +35,9 @@ const Comments = ({
     <div className="border-t-2 border-[#00af12] bg-zinc-800 pt-4 px-10 mt-4  border-b-2 lg:pb-0 pb-[100px] text-white">
       <div className="overflow-scroll bg-scroll-[#00af12] lg:h-[457px]">
         {comments?.length ? (
-          comments.map((item, idx) => (
+          comments?.map((item: IComment, idx: number) => (
             <>
-              {allUsers.map(
+              {allUsers?.map(
                 (user: IUser) =>
                   user._id === (item.postedBy._id || item.postedBy._ref) && (
                     <div className="p-2 items-center" key={idx}>
