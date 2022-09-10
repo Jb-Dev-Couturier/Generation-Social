@@ -41,7 +41,7 @@ const PostCard: NextPage<IProps> = ({ post }) => {
       <div>
         <div className="flex gap-3 p-2 cursor-pointer rounded font-semibold ">
           <div className="md:w-16 md:h-16 w-10 h-10 rounded-full border-2 border-[#00af12] shadow-md shadow-white">
-            <Link href="/">
+            <Link href={`/profile/${post.postedBy._id}`}>
               <>
                 <Image
                   width={62}
@@ -55,7 +55,7 @@ const PostCard: NextPage<IProps> = ({ post }) => {
             </Link>
           </div>
           <div>
-            <Link href="/">
+            <Link href={`/profile/${post.postedBy._id}`}>
               <div className="flex items-center gap-2">
                 <p className="flex items-center gap-2 md:text-md font-bold  text-[#000]">
                   {post.postedBy.userName}
@@ -71,18 +71,18 @@ const PostCard: NextPage<IProps> = ({ post }) => {
               <div className="w-[100%] flex justify-start items-center cursor-default rounded-full text-[#00af12]">
                 <MdFavorite className=" text-2xl" />
                 <p className="capitalize font-medium text-lg text-black">
-                   {post.likes?.length || 0} like
+                  {post.likes?.length || 0} like
                 </p>
               </div>
             ) : (
               <div className="w-[100%] flex justify-start items-center cursor-default rounded-full text-[#4c4c4c]">
                 <MdFavorite className=" text-2xl" />
                 <p className="font-medium text-lg text-[#4c4c4c]">
-                   {post.likes?.length || 0} like
+                  {post.likes?.length || 0} like
                 </p>
               </div>
             )}
-            <Link href={`/`}>
+            <Link href={`/profile/${post.postedBy._id}`}>
               <p className="mt-2 text-[#000] text-lg font-semibold">
                 {post.caption}
               </p>
@@ -131,7 +131,7 @@ const PostCard: NextPage<IProps> = ({ post }) => {
         ) : (
           <Link href={`/detail/${post._id}`}>
             <img
-              className="h-[100%] lg:w-[600px]  md:w-[450px] w-[90%] s rounded-2xl cursor-pointer object-contain border border-[#00af12]"
+              className="h-[100%] lg:w-[600px]  md:w-[450px] w-[90%] max-h-[350px] s rounded-2xl cursor-pointer object-cover border border-[#00af12]"
               src={post.image.asset.url}
               alt="PhotoPost"
             />
