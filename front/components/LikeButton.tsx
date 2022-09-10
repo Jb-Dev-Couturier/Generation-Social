@@ -3,6 +3,7 @@ import { MdFavorite } from 'react-icons/md';
 import { NextPage } from 'next';
 
 import useAuthStore from '../store/authStore';
+import { toast } from 'react-hot-toast';
 
 interface IProps {
   likes: any;
@@ -43,7 +44,7 @@ const LikeButton: NextPage<IProps> = ({
           </div>
         ) : (
           <div
-            className="bg-zinc-700 hover:bg-primary hover:text-[#00af12] rounded-full p-2 md:p-4 text-[#ffffff] border border-[#00af12]"
+            className="bg-zinc-8000 hover:bg-primary hover:text-[#00af12] rounded-full p-2 md:p-4 text-[#919191] border border-[#00af12]"
             onClick={handleLike}
           >
             <MdFavorite className="text-lg md:text-2xl" />

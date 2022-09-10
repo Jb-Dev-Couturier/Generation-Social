@@ -18,7 +18,7 @@ const Home = ({ posts }: IProps) => {
           <PostCard post={post} key={post._id} />
         ))
       ) : (
-        <NoResults text={'Pas de video'} />
+        <NoResults text={'Pas de Post Soyez le Premier'} />
       )}
     </div>
   );

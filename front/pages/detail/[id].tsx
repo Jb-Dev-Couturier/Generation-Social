@@ -14,6 +14,8 @@ import useAuthStore from '../../store/authStore';
 import LikeButton from '../../components/LikeButton';
 import Comments from '../../components/Comments';
 
+import {toast} from 'react-hot-toast';
+
 interface IProps {
   postDetails: Post;
 }
@@ -21,7 +23,10 @@ interface IProps {
 const Detail = ({ postDetails }: IProps) => {
   const [post, setPost] = useState(postDetails);
   const [isVideoMuted, setIsVideoMuted] = useState<boolean>(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isPostingComment, setIsPostingComment] = useState<boolean>(false);
+  const [comment, setComment] = useState<string>('');
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();
 
@@ -51,6 +56,34 @@ const Detail = ({ postDetails }: IProps) => {
           like,
         });
         setPost({ ...post, likes: res.data.likes });
+        if(like){
+          toast('Vous avez Liker le Post', {
+            icon: '👍💚👍',
+          });
+        }else{
+          toast('Vous avez UnLike le Post', {
+            icon: '👎🤍👎',
+          });
+        }
+      }
+    };
+
+    const addComment = async (e: { preventDefault: () => void }) => {
+      e.preventDefault();
+
+      if (userProfile) {
+        if (comment) {
+          setIsPostingComment(true);
+          const {data} = await axios.put(`${BASE_URL}/api/post/${post._id}`, {
+            userId: userProfile._id,
+            comment,
+          });
+          toast.success('Vous avez commenter le Post');
+          setPost({ ...post, comments: data.comments });
+          setComment('');
+          setIsPostingComment(false);
+          
+        }
       }
     };
 
@@ -141,23 +174,22 @@ const Detail = ({ postDetails }: IProps) => {
               </div>
               <div className="mt-10 px-10">
                 {userProfile && (
-                  
-                   <LikeButton
-                     likes={post.likes}
-                     flex="flex"
-                     handleLike={() => handleLike(true)}
-                     handleDislike={() => handleLike(false)}
-                   />
+                  <LikeButton
+                    likes={post.likes}
+                    flex="flex"
+                    handleLike={() => handleLike(true)}
+                    handleDislike={() => handleLike(false)}
+                  />
                 )}
               </div>
-              
-               <Comments
-                //comment={comment}
-                //setComment={setComment}
-                //addComment={addComment}
-                //comments={post.comments}
-                //isPostingComment={isPostingComment}
-              /> 
+
+              <Comments
+                comment={comment}
+                setComment={setComment}
+                addComment={addComment}
+                comments={post.comments}
+                isPostingComment={isPostingComment}
+              />
             </div>
           </div>
         </div>

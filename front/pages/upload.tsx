@@ -10,6 +10,8 @@ import { SanityAssetDocument } from '@sanity/client';
 import { topics } from '../utils/constants';
 import { BASE_URL } from '../utils';
 
+import { toast } from 'react-hot-toast';
+
 const Upload = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [caption, setCaption] = useState('');
@@ -52,6 +54,7 @@ const Upload = () => {
           setVideoAsset(data);
           setIsLoading(false);
           setWrongFileType(false);
+          toast.success('Votre Video est Poster');
         });
     }
     if (fileTypesI.includes(selectedFile.type)) {
@@ -66,6 +69,7 @@ const Upload = () => {
           setImageAsset(data);
           setIsLoading(false);
           setWrongFileType(false);
+          toast.success('Votre Image est Poster');
         });
     } else {
       setIsLoading(false);
@@ -124,7 +128,7 @@ const Upload = () => {
               Poster une Image ou une Video Sur votre profil
             </p>
           </div>
-          <div className="border-dashed rounded-xl border border-[#fff] flex flex-col justify-center items-center outline-none mt-10 w-[260px] h-[460px] cursor-pointer hover:border-[#00af12] hover:bg-zinc-700">
+          <div className="border-dashed rounded-xl border border-[#fff] flex flex-col justify-center items-center outline-none mt-10 w-[260px] h-[460px] cursor-pointer hover:border-[#00af12] hover:bg-zinc-800">
             {isLoading ? (
               <p>Chargement...</p>
             ) : (

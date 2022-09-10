@@ -9,6 +9,8 @@ import { GoVerified } from 'react-icons/go';
 import { Post } from '../types';
 import { MdFavorite } from 'react-icons/md';
 
+
+
 interface IProps {
   post: Post;
 }

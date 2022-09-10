@@ -8,9 +8,9 @@ const Discover = () => {
   const router = useRouter()
   const {topic}= router.query
   const activeTopicStyle =
-    'xl:border-2 border-r-2 border-green-500 xl:border-green-500 px-3 py-2 rounded xl:rounded-full flex items-center gap-2 justify-center cursor-pointer text-[#00af12] hover:xl:border-green-500 hover:bg-primary';
+    'flex items-center gap-3 hover:bg-primary p-3 border justify-center rounded-lg border-r-2 border-green-500 xl:justify-start cursor-pointer font-semibold bg-[#00af12] hover:border-[#00af12] hover:border';
   const topicStyle =
-    'xl:border-2 hover:bg-primary hover:border-r-2 border-green-500 xl:border-gray-300 px-3 py-2 rounded xl:rounded-full flex items-center gap-2 justify-center cursor-pointer text-black hover:text-[#00af12] hover:xl:border-green-500';
+    'flex items-center gap-3 hover:bg-primary p-3 justify-center rounded-lg hover:border-r-2 border-green-500 xl:justify-start cursor-pointer font-semibold';
   return (
     <div className="xl:border-b-2 xl:border-gray-400 ">
       <p className="text-gray-500 font-semibold m-3 mt-4 hidden xl:block">
