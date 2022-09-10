@@ -27,6 +27,11 @@ const PostCard: NextPage<IProps> = ({ post }) => {
       setPlaying(true);
     }
   };
+    useEffect(() => {
+      if (videoRef?.current) {
+        videoRef.current.muted = isVideoMuted;
+      }
+    }, [isVideoMuted]);
 
   return (
     <div className="flex flex-col border-b-2  pb-6  rounded-2xl">
@@ -110,7 +115,7 @@ const PostCard: NextPage<IProps> = ({ post }) => {
             <img
               className="h-[100%] lg:w-[600px]  md:w-[450px] w-[90%] s rounded-2xl cursor-pointer object-contain border border-[#00af12]"
               src={post.image.asset.url}
-              alt="PhotoProfil"
+              alt="PhotoPost"
             />
           </Link>
         )}

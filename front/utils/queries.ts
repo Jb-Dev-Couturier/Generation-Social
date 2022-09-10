@@ -8,7 +8,7 @@ export const allPostsQuery = () => {
           url
         },
       },
-     caption,
+     
        video{
         asset->{
           _id,
@@ -46,7 +46,7 @@ export const postDetailQuery = (postId: string | string[]) => {
           url
         },
       },
-     caption,
+     
        video{
         asset->{
           _id,
@@ -82,7 +82,7 @@ export const searchPostsQuery = (searchTerm: string | string[]) => {
           url
         },
       },
-     caption,
+     
        video{
         asset->{
           _id,
@@ -131,7 +131,7 @@ export const userCreatedPostsQuery = (userId: string | string[]) => {
           url
         },
       },
-     caption,
+     
        video{
         asset->{
           _id,
@@ -170,7 +170,7 @@ export const userLikedPostsQuery = (userId: string | string[]) => {
           url
         },
       },
-     caption,
+     
        video{
         asset->{
           _id,
@@ -209,7 +209,7 @@ export const topicPostsQuery = (topic: string | string[]) => {
           url
         },
       },
-     caption,
+     
        video{
         asset->{
           _id,

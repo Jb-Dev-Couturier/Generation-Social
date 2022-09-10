@@ -2,6 +2,7 @@ import axios from 'axios';
 import NoResults from '../components/NoResults';
 import PostCard from '../components/PostCard';
 import { Post } from '../types';
+import { BASE_URL } from '../utils';
 
 interface IProps {
   posts: Post[];
@@ -24,7 +25,7 @@ const Home = ({ posts }: IProps) => {
 };
 
 export const getServerSideProps = async () => {
-  const { data } = await axios.get('http://localhost:3000/api/post');
+  const { data } = await axios.get(`${BASE_URL}/api/post`);
 
   return {
     props: {
