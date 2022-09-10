@@ -7,6 +7,7 @@ import { BsFillPlayFill, BsFillPauseFill } from 'react-icons/bs';
 import { GoVerified } from 'react-icons/go';
 
 import { Post } from '../types';
+import { MdFavorite } from 'react-icons/md';
 
 interface IProps {
   post: Post;
@@ -64,6 +65,21 @@ const PostCard: NextPage<IProps> = ({ post }) => {
                 </p>
               </div>
             </Link>
+            {post.likes?.length > 0 ? (
+              <div className="w-[100%] flex justify-start items-center cursor-default rounded-full text-[#00af12]">
+                <MdFavorite className=" text-2xl" />
+                <p className="capitalize font-medium text-lg text-black">
+                   {post.likes?.length || 0} like
+                </p>
+              </div>
+            ) : (
+              <div className="w-[100%] flex justify-start items-center cursor-default rounded-full text-[#4c4c4c]">
+                <MdFavorite className=" text-2xl" />
+                <p className="font-medium text-lg text-[#4c4c4c]">
+                   {post.likes?.length || 0} like
+                </p>
+              </div>
+            )}
             <Link href={`/`}>
               <p className="mt-2 text-[#000] text-lg font-semibold">
                 {post.caption}
