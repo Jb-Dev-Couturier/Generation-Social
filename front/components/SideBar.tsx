@@ -1,22 +1,24 @@
-import React,{useState} from 'react'
-import Link from 'next/link'
+import React, { useState } from 'react';
+import Link from 'next/link';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { AiFillHome, AiOutlineMenu } from 'react-icons/ai';
-import{ImCancelCircle} from 'react-icons/im'
+import { ImCancelCircle } from 'react-icons/im';
 
 import Discover from './Discover';
 import SuggestedAccounts from './SuggestedAccounts';
 import Footer from './Footer';
 import useAuthStore from '../store/authStore';
 
-
 const SideBar: NextPage = () => {
   const [showSideBar, setShowSideBar] = useState<Boolean>(true);
   const { pathname } = useRouter();
   const { fetchAllUsers, allUsers }: any = useAuthStore();
-  const normalLink ='flex items-center gap-3 hover:bg-primary p-3 justify-center rounded-lg hover:border-r-2 border-green-500 xl:justify-start cursor-pointer font-semibold text-[#00af12] ';
-  const activeLink ='flex items-center gap-3 hover:bg-primary p-3 justify-center rounded-lg hover:border-r-2 border-green-500 xl:justify-start cursor-pointer font-semibold text-[#00af12] ';
+   const activeLink =
+     'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] hover:border-r-2 border-green-500 rounded';
+
+   const normalLink =
+     'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold rounded hover:border-r-2 border-green-500';
   return (
     <div>
       <div
@@ -33,7 +35,9 @@ const SideBar: NextPage = () => {
                 <p className="text-2xl text-lime-500">
                   <AiFillHome />
                 </p>
-                <span className="text-xl hidden xl:block ">Acceuil</span>
+                <span className="text-xl text-black hidden xl:block ">
+                  Acceuil
+                </span>
               </div>
             </Link>
           </div>
@@ -49,4 +53,4 @@ const SideBar: NextPage = () => {
   );
 };
 
-export default SideBar
+export default SideBar;
