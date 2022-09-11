@@ -8,7 +8,7 @@ import { ImBooks } from 'react-icons/im';
 
 export const topics = [
   {
-    name: 'actualités',
+    name: 'actu',
     icon: <SiGooglenews />,
   },
   {
@@ -43,7 +43,7 @@ export const topics = [
 
 export const footerList1 = [
   'Apropos',
-  'Actualités',
+  'Actu',
   'Magasin',
   'Contact',
   'Carrières',
