@@ -26,6 +26,7 @@ const Detail = ({ postDetails }: IProps) => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isPostingComment, setIsPostingComment] = useState<boolean>(false);
   const [comment, setComment] = useState<string>('');
+  const [savingLike, setSavingLike] = useState<boolean>(false);
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();

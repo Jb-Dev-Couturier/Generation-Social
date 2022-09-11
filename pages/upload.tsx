@@ -222,7 +222,7 @@ const Upload = () => {
               Supprimer
             </button>
             <button
-              disabled={videoAsset?.url || imageAsset?.url ? false : true}
+              disabled={savingPost}
               onClick={handlePost}
               type="button"
               className="bg-[#00af1175] text-gray-400 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none cursor-pointer hover:scale-95 hover:bg-[#00af12] hover:text-white"

@@ -86,6 +86,7 @@ const Comments = ({
             <button
               className="text-md text-[#00af12]  border-2 border-[#00af12] bg-primary rounded-lg px-6 py-4 hover:bg-[#00af12] hover:text-[#ffffff] hover:scale-95"
               onClick={addComment}
+              
             >
               {isPostingComment ? 'En cours...' : 'Commenter'}
             </button>
