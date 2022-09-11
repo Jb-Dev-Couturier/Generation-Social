@@ -1,7 +1,6 @@
 import React from 'react';
 import { BiCommentX } from 'react-icons/bi';
 import { BsFillSignpostSplitFill } from 'react-icons/bs';
-import { MdOutlineVideocamOff } from 'react-icons/md';
 
 
 interface IProps {

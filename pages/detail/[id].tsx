@@ -113,11 +113,13 @@ const Detail = ({ postDetails }: IProps) => {
                   ></video>
                 ) : (
                   //image
-                  <img
+                  <Image
                     className="object-contain h-full cursor-pointer"
                     src={postDetails.image.asset.url}
                     alt="PhotoPost"
-                  ></img>
+                    width={900}
+                    height={800}
+                  />
                 )}
               </div>
 

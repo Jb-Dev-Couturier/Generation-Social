@@ -4,7 +4,6 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 import { GoVerified } from 'react-icons/go';
 
-import useAuthStore from '../store/authStore';
 import { IUser } from '../types';
 
 interface IProps {
@@ -13,6 +12,11 @@ interface IProps {
 }
 
 const SuggestedAccounts: NextPage<IProps> = ({ fetchAllUsers, allUsers }) => {
+
+  useEffect(() => {
+    fetchAllUsers();
+  }, [fetchAllUsers]);
+
   const users = allUsers
     .sort(() => 0.5 - Math.random())
     .slice(0, allUsers.length);

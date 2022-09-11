@@ -3,7 +3,6 @@ import { MdFavorite } from 'react-icons/md';
 import { NextPage } from 'next';
 
 import useAuthStore from '../store/authStore';
-import { toast } from 'react-hot-toast';
 
 interface IProps {
   likes: any;

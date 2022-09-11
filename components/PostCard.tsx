@@ -130,10 +130,12 @@ const PostCard: NextPage<IProps> = ({ post }) => {
           </div>
         ) : (
           <Link href={`/detail/${post._id}`}>
-            <img
+            <Image
               className="h-[100%] lg:w-[600px]  md:w-[450px] w-[90%] max-h-[350px] s rounded-2xl cursor-pointer object-cover border border-[#00af12]"
               src={post.image.asset.url}
               alt="PhotoPost"
+              width={600}
+              height={350}
             />
           </Link>
         )}
