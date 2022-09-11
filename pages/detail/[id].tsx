@@ -74,14 +74,14 @@ const Detail = ({ postDetails }: IProps) => {
       if (userProfile) {
         if (comment) {
           setIsPostingComment(true);
-          const {data} = await axios.put(`${BASE_URL}/api/post/${post._id}`, {
+          const res = await axios.put(`${BASE_URL}/api/post/${post._id}`, {
             userId: userProfile._id,
             comment,
           });
-          toast.success('Vous avez commenter le Post');
-          setPost({ ...post, comments: data.comments });
+          setPost({ ...post, comments: res.data.comments });
           setComment('');
           setIsPostingComment(false);
+          toast.success('Vous avez commenter le Post');
           
         }
       }
@@ -102,12 +102,12 @@ const Detail = ({ postDetails }: IProps) => {
             </div>
             <div className="relative ">
               <div className="lg:h-[100vh] h-[60vh]">
-                {postDetails.video ? (
+                {post.video ? (
                   //video
                   <video
                     loop
                     ref={videoRef}
-                    src={postDetails.video.asset.url}
+                    src={post?.video?.asset.url}
                     className="h-full cursor-pointer"
                     onClick={onVideoClick}
                   ></video>
@@ -115,7 +115,7 @@ const Detail = ({ postDetails }: IProps) => {
                   //image
                   <Image
                     className="object-contain h-full cursor-pointer"
-                    src={postDetails.image.asset.url}
+                    src={post?.image?.asset.url}
                     alt="PhotoPost"
                     width={900}
                     height={800}
@@ -124,14 +124,14 @@ const Detail = ({ postDetails }: IProps) => {
               </div>
 
               <div className="absolute top-[45%] left-[45%] cursor-pointer">
-                {!isPlaying && postDetails.video && (
+                {!isPlaying && post.video && (
                   <button onClick={onVideoClick}>
                     <BsFillPlayFill className="text-[#ffffff] hover:text-[#00af12] text-6xl lg:text-8xl bg-zinc-800 rounded-full p-1 pl-2 border border-[#ffffff] hover:border-[#00af12]" />
                   </button>
                 )}
               </div>
             </div>
-            {postDetails.video && (
+            {post.video && (
               <div className="absolute bottom-5 lg:bottom-10 right-5 lg:right-10  cursor-pointer">
                 {isVideoMuted ? (
                   <button onClick={() => setIsVideoMuted(false)}>

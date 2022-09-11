@@ -17,7 +17,7 @@ const Discover = () => {
         Thème Populaires
       </p>
       <div className="flex gap-3 pl-1 flex-wrap mb-5 lg:flex-col ">
-        {topics.map((item) => (
+        {topics?.map((item) => (
           <Link href={`/?topic=${item.name}`} key={item.name}>
             <div
               className={topic === item.name ? activeTopicStyle : topicStyle}

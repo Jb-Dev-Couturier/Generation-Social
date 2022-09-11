@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { FaCloudUploadAlt, FaFileUpload } from 'react-icons/fa';
-import { MdDelete } from 'react-icons/md';
 
 import useAuthStore from '../store/authStore';
 import { client } from '../utils/client';

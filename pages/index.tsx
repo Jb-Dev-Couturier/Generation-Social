@@ -9,13 +9,10 @@ interface IProps {
 }
 
 const Home = ({ posts }: IProps) => {
-
   return (
     <div className="flex flex-col gap-10 videos h-full">
       {posts.length ? (
-        posts.map((post: Post) => (
-          <PostCard post={post} key={post._id} />
-        ))
+        posts.map((post: Post) => <PostCard post={post} key={post._id} />)
       ) : (
         <NoResults text={'Pas de Post Soyez le Premier'} />
       )}
@@ -24,22 +21,18 @@ const Home = ({ posts }: IProps) => {
 };
 
 export const getServerSideProps = async ({
-  query:{topic}
-
-}:{
-  query: {topic : string}
+  query: { topic },
+}: {
+  query: { topic: string };
 }) => {
-  let response = null
-  if(topic){
+  let response = await axios.get(`${BASE_URL}/api/post`);
+  if (topic) {
     response = await axios.get(`${BASE_URL}/api/discover/${topic}`);
-  }else{
-
-    response = await axios.get(`${BASE_URL}/api/post`);
   }
 
   return {
     props: {
-      posts: response.data
+      posts: response.data,
     },
   };
 };

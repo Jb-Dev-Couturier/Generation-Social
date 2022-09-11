@@ -25,7 +25,7 @@ const Profile = ({ data }: IProps) => {
   const liked = !showUserPosts ? 'border-b-2 border-black' : 'text-gray-400';
 
   useEffect(() => {
-    const fetchVideos = async () => {
+    const fetchPosts = async () => {
       if (showUserPosts) {
         setPostList(userPosts);
       } else {
@@ -33,7 +33,7 @@ const Profile = ({ data }: IProps) => {
       }
     };
 
-    fetchVideos();
+    fetchPosts();
   }, [showUserPosts, userLikedPosts, userPosts]);
 
   return (
